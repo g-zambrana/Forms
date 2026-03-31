@@ -1,18 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+
 <body>
     <h1>Our current users</h1>
-    <ul>
-    <% 
-        let users = locals.users;
-        for(user of users){ %>
-            <li><%= user.firstName %></li>
-    <% } %>
-    </ul>
+
+    <table border="1">
+        <tr>
+            <th>First Name</th>
+            <th>Last Name</th>
+        </tr>
+        <tbody>
+        </tbody>
+        <%  let users=locals.users; 
+            for(user of users){ %>
+            <tr>
+                <td>
+                    <%= user.firstName %>
+                </td>
+                <td>
+                    <%= user.lastName %>
+                </td>
+            
+            </tr>
+            <% } %>
+    </table>
 </body>
+
 </html>
