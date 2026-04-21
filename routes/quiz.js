@@ -4,12 +4,18 @@ const {readFile} = require('fs').promises;
 
 router.get("/", async (req, res) => {
     let chosenWords = await getWords();
-    console.log("Chosen Words: ", chosenWords);
     res.render('quiz', {chosenWords})
 });
 
 router.post("/", (req, res) => {
     console.log(req.body);
+    let {userChoice, correctDef, totalQuestions, totalCorrect} = req.body;
+    if (userChoice === correctDef)
+    {
+        console.log("Correct!");
+        let score = totalCorrect +1;
+    }
+    let total = totalQuestions + 1;
 });
 
 let getWords = async () => {
