@@ -26,7 +26,7 @@
         <% if (isCorrect) { %>
             <span class="correct">Correct</span>
         <% } else { %>
-            <span class="incorrect">Incorrect</span>
+            <span class="incorrect">Incorrect,<br>The definition for "<%=previousWord%>" was "<%=previousDef%>"</span>
         <% } %>
     </p>
     <% } %>
@@ -47,6 +47,10 @@
     <input type="hidden" name="correctDef" value="<%=correctDef%>">
     <input type="hidden" name="totalQuestions" value="<%=questionCount%>">
     <input type="hidden" name="totalCorrect" value="<%=score%>">
+    <input type="hidden" name="correctWord" value="<%=correctWord%>">
+
+
     </form>
+
 </body>
 </html>
