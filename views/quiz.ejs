@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Document</title>
+    <title>quiz test</title>
+    <link rel="stylesheet" href="/quiz.css">
 </head>
 <body>
 
@@ -13,14 +14,23 @@
         let [correctWord , correctPart , correctDef] = chosenWord.split('\t');
     %>
 
-
-    <h1>Word Quiz!</h1>
     <% if (questionCount == 0){ %>
         <h1>Welcome to the Word Quiz!</h1>
     <% } else { %>
         <h1>Score: <%=score%> / <%=questionCount%></h1>
-
     <% } %>
+    
+    <% if (questionCount > 0) { %>
+    <p>
+        Your last answer was 
+        <% if (isCorrect) { %>
+            <span class="correct">Correct</span>
+        <% } else { %>
+            <span class="incorrect">Incorrect</span>
+        <% } %>
+    </p>
+    <% } %>
+
     <h2><%=correctWord %> - <%=correctPart%></h2>
     <form action="quiz" method="post">
     <ol>

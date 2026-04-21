@@ -7,15 +7,20 @@ router.get("/", async (req, res) => {
     res.render('quiz', {chosenWords})
 });
 
-router.post("/", (req, res) => {
+router.post("/", async (req, res) => {
     console.log(req.body);
     let {userChoice, correctDef, totalQuestions, totalCorrect} = req.body;
+    let isCorrect = false;
     if (userChoice === correctDef)
     {
         console.log("Correct!");
-        let score = totalCorrect +1;
+        isCorrect = true;
+        totalCorrect++;
     }
-    let total = totalQuestions + 1;
+
+    totalQuestions++
+    let chosenWords = await getWords();
+    res.render('quiz', {chosenWords, isCorrect, totalQuestions, totalCorrect});
 });
 
 let getWords = async () => {
